@@ -139,7 +139,8 @@ The upper graph shows the number of 200 response code (sum by(endpoint) (flask_h
 
 Graph on the lower left shows the number of 4xx response code (sum by(endpoint, status) (flask_http_request_total{endpoint=\~"backend|frontend", status=\~"403|404|404|410"}))
 
-Graph on the lower right shows the number of 5xx response code (sum by(endpoint, status) (flask_http_request_total{endpoint=\~"backend|frontend", status=\~"500|503"}))
+Graph on the lower right shows the number of 5xx response code
+```(sum by(endpoint, status) (flask_http_request_total{endpoint=\~"backend|frontend", status=\~"500|503"}))```
 
 
 
