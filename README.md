@@ -45,18 +45,18 @@ SLO *request response time*: To validate that we achieve this service level obje
 ![Image](answer-img/Grafana_Dashboard.PNG)
 
 ## Tracing our Flask App
-*DONE:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
+*TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
 
 ![Image](answer-img/Jaeger_Traces1.PNG)
 ![Image](answer-img/Jaeger_Traces2.PNG)
 ![Image](answer-img/Tracer_Python_Code.PNG)
 
 ## Jaeger in Dashboards
-*DONE:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
+*TODO:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
 ![Image](answer-img/Grafana_Dashboard_Jaeger.PNG)
 
 ## Report Error
-*DONE:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
+*TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
 
 TROUBLE TICKET
 
@@ -75,7 +75,7 @@ Description: As visible in the Jaeger trace, the endpoint /star of the backen ap
 ![Image](answer-img/Jaeger_500_Traces_Details.PNG)
 
 ## Creating SLIs and SLOs
-*DONE:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
+*TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
 
 - Uptime
 - Latency
@@ -83,28 +83,28 @@ Description: As visible in the Jaeger trace, the endpoint /star of the backen ap
 - Errors / error rate 
 
 ## Building KPIs for our plan
-*DONE*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
+*TODO*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
 
-Uptime:
+###### Uptime:
  - uptime of the frontend pods to check that the frontend is technically running
  - uptime of the backend pods to check that the backend is technically running
 
-Latency:
+###### Latency:
  - response time for successful requests (in ms) to ensure that customers are not waiting too long for their response
- - response time (slowest 10%) for successful request to see the 
+ - response time (90% percentile) for successful request to see majority of requests are handled in a reasonable time
 
-Resource Usage:
+###### Resource Usage:
  - CPU usage of frontend pods to validate that we have the right pod sizing or need to tune the application
  - CPU usage of backend pods to validate that we have the right pod sizing or need to tune the application
  - Memory usage of frontend pods to validate that we have the right pod sizing or need to tune the application
  - Memory usage of backend pods to validate that we have the right pod sizing or need to tune the application
 
-Errors:
+###### Errors:
  - Number of 5xx errors as they indicate that there is something fundamental wrong with the application
  - Number of 4xx errors as they indicate that there is something going wrong where we need to have a closer look    
 
 ## Final Dashboard
-*DONE*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+*TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
 
 ![Image](answer-img/Grafana_Dashboard_Uptime.PNG)
 
