@@ -133,11 +133,11 @@ Graph on the lower right shows the Memory utilization of the backend (rate(proce
 
 ![Image](answer-img/Grafana_Dashboard_Errors.PNG)
 
-The upper graph shows the number of 200 response code (sum by(endpoint) (flask_http_request_total{endpoint=~"backend|frontend", status="200"}))
+The upper graph shows the number of 200 response code (sum by(endpoint) (flask_http_request_total{endpoint=\~"backend|frontend", status="200"}))
 
-Graph on the lower left shows the number of 4xx response code (sum by(endpoint, status) (flask_http_request_total{endpoint=~"backend|frontend", status=~"403|404|404|410"}))
+Graph on the lower left shows the number of 4xx response code (sum by(endpoint, status) (flask_http_request_total{endpoint=\~"backend|frontend", status=\~"403|404|404|410"}))
 
-Graph on the lower right shows the number of 5xx response code (sum by(endpoint, status) (flask_http_request_total{endpoint=~"backend|frontend", status=~"500|503"}))
+Graph on the lower right shows the number of 5xx response code (sum by(endpoint, status) (flask_http_request_total{endpoint=\~"backend|frontend", status=\~"500|503"}))
 
 
 
