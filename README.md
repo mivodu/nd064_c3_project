@@ -53,7 +53,7 @@ SLO *request response time*: To validate that we achieve this service level obje
 
 ## Jaeger in Dashboards
 *DONE:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
-![Image](answer-img/Jaeger_Traces1.PNG)
+![Image](answer-img/Grafana_Dashboard_Jaeger.PNG)
 
 ## Report Error
 *DONE:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
@@ -77,10 +77,10 @@ Description: As visible in the Jaeger trace, the endpoint /star of the backen ap
 ## Creating SLIs and SLOs
 *DONE:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
 
-Uptime
-Latency
-Resource Usage
-Errors / error rate 
+- Uptime
+- Latency
+- Resource Usage
+- Errors / error rate 
 
 ## Building KPIs for our plan
 *DONE*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
