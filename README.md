@@ -118,30 +118,53 @@ You could see unavailability of frontend and backend for a short time around 17:
 
 ![Image](answer-img/Grafana_Dashboard_Latency.PNG)
 
-Graph on the left shows the average response time for response code 200 (rate(flask_http_request_duration_seconds_sum{status="200"}[30s])
+Graph on the left shows the average response time for response code 200
+```
+rate(flask_http_request_duration_seconds_sum{status="200"}[30s])
+```
 
-Graph on the right shows the 90% percentile of response time for response code 200 (histogram_quantile(0.9, rate(flask_http_request_duration_seconds_bucket{status="200"}[30s]))
+Graph on the right shows the 90% percentile of response time for response code 200
+```
+histogram_quantile(0.9, rate(flask_http_request_duration_seconds_bucket{status="200"}[30s])
+```
 
 ![Image](answer-img/Grafana_Dashboard_Utilization.PNG)
 
-Graph on the upper left shows the CPU utilization of the frontend (rate(process_cpu_seconds_total{endpoint="frontend"}[$__interval])) 
+Graph on the upper left shows the CPU utilization of the frontend
+```
+rate(process_cpu_seconds_total{endpoint="frontend"}[$__interval])
+```
 
 Graph on the upper right shows the CPU utilization of the backend
-(rate(process_cpu_seconds_total{endpoint="backend"}[$__interval])) 
+```
+rate(process_cpu_seconds_total{endpoint="backend"}[$__interval])
+```
 
-Graph on the lower left shows the Memory utilization of the frontend (rate(process_resident_memory_bytes{job="frontend"}[$__interval])) 
+Graph on the lower left shows the Memory utilization of the frontend 
+```
+rate(process_resident_memory_bytes{job="frontend"}[$__interval])
+```
 
-Graph on the lower right shows the Memory utilization of the backend (rate(process_resident_memory_bytes{job="backend"}[$__interval])) 
+Graph on the lower right shows the Memory utilization of the backend 
+```
+rate(process_resident_memory_bytes{job="backend"}[$__interval])
+```
 
 ![Image](answer-img/Grafana_Dashboard_Errors.PNG)
 
-The upper graph shows the number of 200 response code (sum by(endpoint) (flask_http_request_total{endpoint=\~"backend|frontend", status="200"}))
+The upper graph shows the number of 200 response code 
+```
+sum by(endpoint) (flask_http_request_total{endpoint=~"backend|frontend", status="200"})
+```
 
-Graph on the lower left shows the number of 4xx response code (sum by(endpoint, status) (flask_http_request_total{endpoint=\~"backend|frontend", status=\~"403|404|404|410"}))
+Graph on the lower left shows the number of 4xx response code
+```
+sum by(endpoint, status) (flask_http_request_total{endpoint=~"backend|frontend", status=~"403|404|404|410"})
+```
 
 Graph on the lower right shows the number of 5xx response code
 ```
-(sum by(endpoint, status) (flask_http_request_total{endpoint=\~"backend|frontend", status=\~"500|503"}))
+sum by(endpoint, status) (flask_http_request_total{endpoint=~"backend|frontend", status=~"500|503"})
 ```
 
 
