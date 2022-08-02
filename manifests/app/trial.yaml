@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trial
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/path: '/metrics'
+    prometheus.io/port: trialport
+  labels:
+    monitoring: 'true'
+    release: prometheus
+    app: trial
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trial
+  template:
+    metadata:
+      labels:
+        app: trial
+    spec:
+      containers:
+      - name: trial
+        image: mivodu/trial-project-3:v0.0.4
+        ports:
+        - name: trialport
+          containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trial
+  labels:
+    monitoring: 'true'
+    release: prometheus
+    app: trial
+spec:
+  selector:
+    app: trial
+  ports:
+    - name: trial
+      port: 8082
+      targetPort: trialport
+      protocol: TCP
+  type: LoadBalancer
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: trial-monitor
+  namespace: monitoring
+  labels:
+    app: trial
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: trial
+  endpoints:
+  - port: trial
+    path: /metrics
+    interval: 15s
+  jobLabel: monitoring-trial
+  namespaceSelector:
+    matchNames:
+    - default
