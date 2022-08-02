@@ -7,16 +7,17 @@
 Result by: 
 kubectl get all -A --field-selector metadata.namespace!=kube-system
 ![Image](answer-img/Kubernetes_Details1.PNG)
+![Image](answer-img/Kubernetes_Details2.PNG)
 
 ## Setup the Jaeger and Prometheus source
 *DONE:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
 
-[Setup Jaeger and Prometheus source](answer-img/Grafana_Homepage.PNG)
+![Image](answer-img/Grafana_Homepage.PNG)
 
 ## Create a Basic Dashboard
 *DONE:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
 
-[Create Basic Dashboard](answer-img/Grafana_Prometheus.PNG)
+![Image](answer-img/Grafana_Prometheus.PNG)
 
 ## Describe SLO/SLI
 *DONE:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
@@ -41,13 +42,18 @@ SLO *request response time*: To validate that we achieve this service level obje
 ## Create a Dashboard to measure our SLIs
 *DONE:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
 
-
+![Image](answer-img/Grafana_Dashboard.PNG)
 
 ## Tracing our Flask App
 *DONE:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
 
+![Image](answer-img/Jaeger_Traces1.PNG)
+![Image](answer-img/Jaeger_Traces2.PNG)
+![Image](answer-img/Tracer_Python_Code.PNG)
+
 ## Jaeger in Dashboards
 *DONE:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
+![Image](answer-img/Jaeger_Traces1.PNG)
 
 ## Report Error
 *DONE:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
@@ -65,6 +71,8 @@ Affected Area: /star endpoint of backend app
 Severity: Critical
 
 Description: As visible in the Jaeger trace, the endpoint /star of the backen application can be reached. But processing requires a connection to MongoDB database wich is failing. Might be that DB does not exist or connection is very poor.
+![Image](answer-img/Jaeger_500_Traces.PNG)
+![Image](answer-img/Jaeger_500_Traces_Details.PNG)
 
 ## Creating SLIs and SLOs
 *DONE:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
