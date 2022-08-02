@@ -2,32 +2,32 @@
 
 ## Verify the monitoring installation
 
-*DONE:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
+*TODO:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
 
 Result by: 
-kubectl get all -A --field-selector metadata.namespace!=kube-system
+'''kubectl get all -A --field-selector metadata.namespace!=kube-system'''
 ![Image](answer-img/Kubernetes_Details1.PNG)
 ![Image](answer-img/Kubernetes_Details2.PNG)
 
 ## Setup the Jaeger and Prometheus source
-*DONE:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
+*TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
 
 ![Image](answer-img/Grafana_Homepage.PNG)
 
 ## Create a Basic Dashboard
-*DONE:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
+*TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
 
 ![Image](answer-img/Grafana_Prometheus.PNG)
 
 ## Describe SLO/SLI
-*DONE:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+*TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
 
 SLO *monthly uptime*: To validate that we achieve this service level objective (e.g. 98% uptime per month) we might measure the availability of the application, e.g. by calling the health check once a minute or evaluating the http response code. The SLI would be for example 98,4% monthly uptime for the month of May and we would met our SLO in May.
 
 SLO *request response time*: To validate that we achieve this service level objective (e.g. average response time per day less than 250ms) we might measure the time it takes for a customer request to be processes by our application and the answer is send back to the customer. The SLI would be for example 254ms average response time on 5th of May and we would have missed our SLO on that day.
 
 ## Creating SLI metrics.
-*DONE:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+*TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
 
 'availability' : The ratio the application is available for customers in a defined timeframe (e.g. per month). With this measurement we can see, if our application is stable and can serve our customers at any point in time. This will improve customer satisfaction, reduce customer complaints and by that as well our workload. We will measure this by calling every minute the health check. Receiving an ok we assume the application is up and running. The availability per month is then calculated by (Number of minutes in current month - Number health check NOTOK in current month) * 100 / Number of minutes in current month
 
@@ -40,7 +40,7 @@ SLO *request response time*: To validate that we achieve this service level obje
 'page clicks' : Count how often every (sub)page is called. This might give an indication, which pages are outdated or need to be updated. It might help our marketing to adapt prices or better advertisement (e.g. if a page is often called but the offered articels are not bought by the customer)
 
 ## Create a Dashboard to measure our SLIs
-*DONE:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
+*TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
 
 ![Image](answer-img/Grafana_Dashboard.PNG)
 
