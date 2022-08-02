@@ -104,22 +104,30 @@ Errors:
  - Number of 4xx errors as they indicate that there is something going wrong where we need to have a closer look    
 
 ## Final Dashboard
-*TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+*DONE*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
 
-Result by: 
 ![Image](answer-img/Grafana_Dashboard_Uptime.PNG)
+
 Graph on the left shows the uptime of the frontend (3 pods)
+
 Graph on the right shows the uptime of the backend (3 pods)
+
 You could see unavailability of frontend and backend for a short time around 17:00 cest
 
 ![Image](answer-img/Grafana_Dashboard_Latency.PNG)
+
 Graph on the left shows the average response time for response code 200 (rate(flask_http_request_duration_seconds_sum{status="200"}[30s])
+
 Graph on the right shows the 90% percentile of response time for response code 200 (histogram_quantile(0.9, rate(flask_http_request_duration_seconds_bucket{status="200"}[30s]))
 
 ![Image](answer-img/Grafana_Dashboard_Utilization.PNG)
+
 Graph on the upper left shows the CPU utilization of the frontend (rate(process_cpu_seconds_total{endpoint="frontend"}[$__interval])) 
+
 Graph on the upper right shows the CPU utilization of the backend
 (rate(process_cpu_seconds_total{endpoint="backend"}[$__interval])) 
+
 Graph on the lower left shows the Memory utilization of the frontend (rate(process_resident_memory_bytes{job="frontend"}[$__interval])) 
+
 Graph on the lower right shows the Memory utilization of the backend (rate(process_resident_memory_bytes{job="backend"}[$__interval])) 
 
