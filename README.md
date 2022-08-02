@@ -5,7 +5,9 @@
 *TODO:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
 
 Result by: 
-'''kubectl get all -A --field-selector metadata.namespace!=kube-system'''
+```
+kubectl get all -A --field-selector metadata.namespace!=kube-system
+```
 ![Image](answer-img/Kubernetes_Details1.PNG)
 ![Image](answer-img/Kubernetes_Details2.PNG)
 
